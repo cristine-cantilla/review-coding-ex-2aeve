@@ -1,0 +1,60 @@
+// Import the Scanner class to read user input
+import java.util.Scanner;
+
+// Define a public class named RestaurantBillCalculator
+public class RestaurantBillCalculator {
+
+   // Define the main() method
+   public static void main(String[] args) {
+
+       // Create a Scanner object to read user input
+       Scanner scanner = new Scanner(System.in);
+
+       // Prompt the user to enter the number of people in the table
+       System.out.print("Enter number of people in table: ");
+       // Read the number of people entered by the user
+       int numberOfPeople = scanner.nextInt(); 
+
+       // Prompt the user to enter the total bill amount
+       System.out.print("Enter total bill amount: ");
+       // Read the total bill amount entered by the user
+       double totalBillAmount = scanner.nextDouble(); 
+
+       // Prompt the user to enter the tip percentage
+       System.out.print("Enter tip percentage: ");
+       // Read the tip percentage entered by the user
+       double tipPercentage = scanner.nextDouble();
+
+       // Declare a variable to store the service charge percentage
+       double serviceChargePercentage;
+
+       // Determine the service charge percentage based on the number of people
+       if (numberOfPeople >= 1 && numberOfPeople <= 4) {
+           serviceChargePercentage = 0.05;
+       } else if (numberOfPeople >= 5 && numberOfPeople <= 7) {
+           serviceChargePercentage = 0.08;
+       } else {
+           serviceChargePercentage = 0.15;
+       }
+
+       // Calculate the service charge amount
+       double serviceChargeAmount = totalBillAmount * serviceChargePercentage;
+
+       // Calculate the tip amount
+       double tipAmount = totalBillAmount * tipPercentage / 100;
+
+
+       // Calculate the total amount to pay
+       double totalAmountToPay = totalBillAmount + serviceChargeAmount + tipAmount;
+
+       // Display the calculated service charge amount
+       System.out.println("Service charge amount: " + serviceChargeAmount);
+       // Display the calculated tip amount
+       System.out.println("Tip amount: " + tipAmount);
+       // Display the total amount to pay
+       System.out.println("Total amount to pay: " + totalAmountToPay);
+
+       // Close the Scanner object
+       scanner.close();
+   }
+}
